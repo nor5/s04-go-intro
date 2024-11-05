@@ -1,0 +1,22 @@
+version: "3"
+
+env:
+  ENV: testing
+
+dotenv: ['.env']
+
+tasks:
+  default:
+    cmds:
+      - task: deploy
+    
+  build:
+    cmds:
+      - go build -o bin/task
+  deploy:
+    deps: [build]
+    cmds:
+      - scp $DISTSERVER
+      - ssh $SHHKEY 
+     
+     
