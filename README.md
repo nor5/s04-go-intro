@@ -2,7 +2,7 @@
 - Déclarer et initialiser une map players qui index avec le nom d'un player des objects de type *Player
 - Implémenter pour la structure Player les fonctions suivantes :
     * save() qui permet de stocker dans un fichier nommé nom.yml toutes les données d'un joueur
-    * del() qui permet de supprimer un player (de la map et qui supprimer le fichier .yml avec son tests unitaire associé
+    * del() qui permet de supprimer un player (de la map et qui supprimer le fichier .yml avec son tests unitaire associé)
     * display() qui retourne une string décrivant un joueur avec son test unitaire associé
     Une fonction playerLoad(name string) qui retourne un Player et qui va :
     * charger un player depuis la map s'il existe dedans
