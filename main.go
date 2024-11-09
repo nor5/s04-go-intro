@@ -15,9 +15,9 @@
 
 // func main() {
 // 	// Create a new Discord session using the provided bot token.
-	
+
 // 	err := godotenv.Load(".env")
-  
+
 // 	if err != nil {
 // 	  log.Fatalf("Error loading .env file")
 // 	}
@@ -50,8 +50,7 @@
 
 // 	// Cleanly close down the Discord session.
 // 	dg.Close()
-	
-	
+
 // }
 
 // // This function will be called (due to AddHandler above) every time a new
@@ -59,7 +58,6 @@
 // //
 // // It is called whenever a message is created but only when it's sent through a
 // // server as we did not request IntentsDirectMessages.
-
 
 // func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 // 	// Ignore all messages created by the bot itself
@@ -85,18 +83,24 @@
 
 package main
 
+import (
+	//"fmt"
+	//"os"
+)
+
 
 
 func main () {
-	p := Player{
-		Name: "noor",
-		Username: "nor",
-		Pseudo: "nor5",
-		Age: 55,
-		Health: 100,
-		State: "active",
-	}
-	p.save()
+	// p := Player{
+	// 	Name: "noor",
+	// 	Username: "nor",
+	// 	Pseudo: "nor5",
+	// 	Age: 55,
+	// 	Health: 100,
+	// 	State: "active",
+	// }
+	// p.save()
+	// p.del()
 	
-
+  
 }
