@@ -53,8 +53,8 @@ func (player *Player) save(){
 func (player *Player) del () {
 	delete(players, player.Name)
 	fileName := player.Name + ".yml"
-	fmt.Printf("this FileExist(fileName) funct %v : ", FileExist(fileName))
-	if FileExist(fileName){
+	
+	if fileExist(fileName){
 		err := os.Remove(fileName)
 		if err != nil {
 				log.Fatalf("Error while removing %v file",fileName)
@@ -66,7 +66,21 @@ func (player *Player) del () {
 
 }
 
-func FileExist(fileName string) bool {
+
+func (player *Player) display()string{
+	playerInfo, err := yaml.Marshal(&player)
+	if err != nil {
+		log.Fatalf("Error when marshling data: %v",err)
+		
+	}
+	
+	return string(playerInfo)
+
+}
+
+
+
+func fileExist(fileName string) bool {
     var files []string
 	dir, err := os.Getwd()    //get the current directory using the built-in function
 	fileFound := false
