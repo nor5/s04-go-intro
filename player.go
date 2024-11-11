@@ -2,6 +2,7 @@ package main
 
 import (
 	//"fmt"
+	"bufio"
 	"fmt"
 	"io"
 	"io/fs"
@@ -24,6 +25,40 @@ type Player struct{
 var (
 	players = make(map[string]*Player)
 )
+
+func createPlayer()string{
+	fmt.Print("Entrez le Pseudo du joueur: ")
+	scan := bufio.NewScanner(os.Stdin)
+	scan.Split(bufio.ScanLines)
+	scan.Scan()
+	pseudo := scan.Text()
+	playerExist := false
+	for _ , player := range players{
+		if player.Pseudo == pseudo{
+			playerExist = true
+			break
+		
+		}
+
+	}
+	player := &Player{
+		Name: pseudo,
+		Pseudo: pseudo,
+	}
+	if !playerExist {
+		players[pseudo] = player
+		return fmt.Sprintf("Joueur %v a bien été créé", player.Pseudo)
+	}
+	player.save()
+
+	
+
+
+
+}
+
+
+
 
 func (player *Player) save(){
 	fileName := player.Name + ".yml"
@@ -78,7 +113,18 @@ func (player *Player) display()string{
 
 }
 
+func loadPlayer(name string) (*Player,error){
+	player, exist := players[name]
+	if exist {
+		return player,nil
 
+	}else{
+		//fmt.Printf("Player %v not found", name)
+		return nil,fmt.Errorf("Player %v not found", name )
+
+	}
+
+}
 
 func fileExist(fileName string) bool {
     var files []string

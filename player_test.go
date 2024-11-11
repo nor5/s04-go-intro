@@ -1,7 +1,8 @@
 package main
 
 import (
-	
+	"fmt"
+	"log"
 	"testing"
 )
 func TestSave(t *testing.T){
@@ -42,3 +43,13 @@ func TestDisplay(t *testing.T){
 	p.display()
 }
 
+func TestLoadPlayer(t *testing.T){
+	f,err := loadPlayer("amir")
+	if err != nil{
+		log.Fatal(err)
+	}else{
+		fmt.Print(f)
+	}
+
+	
+}
